@@ -1,0 +1,1772 @@
+
+################################################################################
+📂 目录结构: /home/chi/ai_ops
+################################################################################
+
+└── ai_ops/
+    ├── app/
+    │   ├── __pycache__/
+    │   │   └── __init__.cpython-312.pyc
+    │   ├── routes/
+    │   │   ├── __pycache__/
+    │   │   │   ├── header.cpython-312.pyc
+    │   │   │   ├── index.cpython-312.pyc
+    │   │   │   ├── left.cpython-312.pyc
+    │   │   │   ├── left_bottom.cpython-312.pyc
+    │   │   │   ├── left_top.cpython-312.pyc
+    │   │   │   ├── middle.cpython-312.pyc
+    │   │   │   └── right.cpython-312.pyc
+    │   │   ├── header.py
+    │   │   ├── index.py
+    │   │   ├── left.py
+    │   │   ├── left_bottom.py
+    │   │   ├── left_top.py
+    │   │   ├── middle.py
+    │   │   └── right.py
+    │   ├── utils/
+    │   │   ├── __pycache__/
+    │   │   │   ├── get_zabbix_data.cpython-312.pyc
+    │   │   │   ├── process_json.cpython-312.pyc
+    │   │   │   └── svr_health_ds.cpython-312.pyc
+    │   │   ├── get_zabbix_data.py
+    │   │   ├── process_json.py
+    │   │   ├── stream_redirect.py
+    │   │   └── svr_health_ds.py
+    │   └── __init__.py
+    ├── static/
+    │   ├── images/
+    │   │   ├── logo.svg
+    │   │   └── siteicon.svg
+    │   ├── left.css
+    │   ├── middle.css
+    │   ├── middle.js
+    │   ├── style.css
+    │   └── wave.js
+    ├── templates/
+    │   ├── header.html
+    │   ├── index.html
+    │   ├── left-bottom.html
+    │   ├── left-top.html
+    │   ├── left.html
+    │   ├── middle.html
+    │   └── right.html
+    ├── refined_output.json
+    ├── requirements.txt
+    ├── run.py
+    ├── v100_1.json
+    └── v100_2.json
+
+################################################################################
+📝 文件内容
+################################################################################
+
+================================================================================
+📄 /home/chi/ai_ops/requirements.txt
+================================================================================
+
+anyio==4.2.0
+appdirs==1.4.4
+asgiref==3.7.2
+attrs==23.2.0
+Automat==22.10.0
+Babel==2.10.3
+bcc==0.29.1
+bcrypt==3.2.2
+beautifulsoup4==4.12.3
+blinker==1.7.0
+boto3==1.34.46
+botocore==1.34.46
+Bottleneck==1.3.5
+Brotli==1.1.0
+certifi==2023.11.17
+chardet==5.2.0
+click==8.1.6
+cloud-init==24.4.1
+colorama==0.4.6
+command-not-found==0.3
+configobj==5.0.8
+constantly==23.10.4
+contourpy==1.0.7
+cryptography==41.0.7
+cssselect==1.2.0
+cvxopt==1.3.0
+cycler==0.11.0
+dbus-python==1.3.2
+decorator==5.1.1
+defusedxml==0.7.1
+distro==1.9.0
+distro-info==1.7+build1
+et-xmlfile==1.0.1
+Flask==3.0.2
+fonttools==4.46.0
+fs==2.4.16
+gyp==0.1
+h11==0.14.0
+html5lib==1.1
+httpcore==1.0.2
+httplib2==0.20.4
+httpx==0.26.0
+hyperlink==21.0.0
+idna==3.6
+incremental==22.10.0
+iniconfig==1.1.1
+itsdangerous==2.1.2
+Jinja2==3.1.2
+jmespath==1.0.1
+joblib==1.4.2
+jsonpatch==1.32
+jsonpointer==2.0
+jsonschema==4.10.3
+kiwisolver==0.0.0
+launchpadlib==1.11.0
+lazr.restfulclient==0.14.6
+lazr.uri==1.0.6
+lxml==5.2.1
+lz4==4.0.2+dfsg
+markdown-it-py==3.0.0
+MarkupSafe==2.1.5
+matplotlib==3.6.3
+mdurl==0.1.2
+mpmath==0.0.0
+netaddr==0.8.0
+netifaces==0.11.0
+numexpr==2.9.0
+numpy==1.26.4
+oauthlib==3.2.2
+odfpy==1.4.2
+olefile==0.46
+openai==1.12.0
+openpyxl==3.1.2
+packaging==24.0
+pandas==2.1.4+dfsg
+patsy==0.5.6
+pbr==5.11.1
+pexpect==4.9.0
+pillow==10.2.0
+pluggy==1.4.0
+psutil==5.9.8
+psycopg2==2.9.9
+ptyprocess==0.7.0
+py-cpuinfo==9.0.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pyasyncore==1.0.2
+pydantic==1.10.14
+pyghmi==1.5.61
+Pygments==2.17.2
+PyGObject==3.48.2
+PyHamcrest==2.1.0
+pyinotify==0.9.6
+PyJWT==2.7.0
+pyOpenSSL==23.2.0
+pyparsing==3.1.1
+pyrsistent==0.20.0
+pyserial==3.5
+pytest==7.4.4
+python-apt==2.7.7+ubuntu4
+python-dateutil==2.8.2
+python-debian==0.1.49+ubuntu2
+python-magic==0.4.27
+pytz==2024.1
+PyYAML==6.0.1
+requests==2.31.0
+rich==13.7.1
+s3transfer==0.10.1
+scikit-learn==1.6.1
+SciPy==1.11.4
+service-identity==24.1.0
+setuptools==68.1.2
+simplejson==3.19.2
+six==1.16.0
+sniffio==1.3.0
+sos==4.8.2
+soupsieve==2.5
+ssh-import-id==5.11
+statsmodels==0.14.1+dfsg
+sympy==1.12
+systemd-python==235
+tables==3.9.2
+threadpoolctl==3.6.0
+tqdm>=4.64.0
+Twisted==24.3.0
+typing_extensions==4.10.0
+ubuntu-drivers-common==0.0.0
+ubuntu-pro-client==8001
+ufoLib2==0.16.0
+ufw==0.36.2
+unattended-upgrades==0.1
+unicodedata2==15.1.0
+urllib3==2.0.7
+wadllib==1.3.6
+webencodings==0.5.1
+Werkzeug==3.0.1
+wheel==0.42.0
+xkit==0.0.0
+zope.interface==6.1
+
+
+================================================================================
+📄 /home/chi/ai_ops/v100_1.json
+================================================================================
+
+{
+    "host_name": "v100_1",
+    "host_status": "0",
+    "host_ip": "10.0.10.22",
+    "items": [
+        {
+            "item_name": "Get IPMI sensors",
+            "last_value": "",
+            "history": []
+        }
+    ]
+}
+
+================================================================================
+📄 /home/chi/ai_ops/v100_2.json
+================================================================================
+
+{
+    "host_name": "v100_2",
+    "host_status": "0",
+    "host_ip": "10.0.10.25",
+    "items": [
+        {
+            "item_name": "Get IPMI sensors",
+            "last_value": "",
+            "history": []
+        }
+    ]
+}
+
+================================================================================
+📄 /home/chi/ai_ops/refined_output.json
+================================================================================
+
+{}
+
+================================================================================
+📄 /home/chi/ai_ops/run.py
+================================================================================
+
+from app import create_app, socketio
+
+app = create_app()
+
+if __name__ == "__main__":
+    socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/static/left.css
+================================================================================
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.nav-header {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 16px;
+  color: white;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 8px;
+}
+
+.site-list {
+  padding: 12px 16px;
+  padding-left: 40px; /* 原16px + 36px 向右偏移 */
+}
+
+
+.site-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0;
+  line-height: 1.6; /* 增加行距 */
+  transition: all 0.3s ease;
+}
+
+.site-item .site-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  filter: invert(10%);
+  transition: filter 0.3s ease;
+}
+
+.site-item .site-name {
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.site-item.selected .site-icon {
+  filter: invert(51%) sepia(98%) saturate(745%) hue-rotate(1deg) brightness(102%) contrast(101%);
+}
+
+.site-item.selected .site-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.powered-by {
+  font-size: 12px;
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 8px;
+  padding-top: 10px;
+}
+
+.powered-by hr {
+  border: none;
+  border-top: 0.5px solid #555;
+  margin: 0 16px 6px;
+}
+
+.powered-by a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+
+================================================================================
+📄 /home/chi/ai_ops/static/middle.js
+================================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 加载 Zabbix 数据并更新页面
+  async function loadZabbixData() {
+    try {
+      const response = await fetch('/api/zabbix-data');
+      const result = await response.json();
+
+      if (result.status === "success") {
+        const data = result.data;
+
+        // 更新统计数据
+        document.getElementById('total-nodes-count').textContent = data.total_nodes;
+        document.getElementById('normal-nodes-count').textContent = data.normal_nodes;
+        document.getElementById('error-nodes-count').textContent = data.error_nodes;
+        document.getElementById('offline-nodes-count').textContent = data.offline_nodes;
+
+        // 更新表格数据
+        const tableBody = document.querySelector('#host-table-body');
+        tableBody.innerHTML = ''; // 清空表格内容
+        data.nodes.forEach(node => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${node.host_name}</td>
+            <td>${node.ip}</td>
+            <td>${node.rack}</td>
+            <td><span class="status-indicator ${node.status}"></span></td>
+            <td colspan="2">
+              <div class="health-bar-container">
+                <div class="health-bar" data-health="${node.health}"></div>
+                <span class="health-score">${node.health}%</span>
+              </div>
+            </td>
+            <td class="advice-col"><span class="advice-indicator ${node.advice}"></span></td>
+          `;
+          tableBody.appendChild(row);
+        });
+
+        // 更新健康条样式
+        updateHealthBars();
+      } else {
+        console.error('Failed to load Zabbix data:', result.message);
+      }
+    } catch (error) {
+      console.error('Error fetching Zabbix data:', error);
+    }
+  }
+
+  // 更新健康条样式
+  function updateHealthBars() {
+    const bars = document.querySelectorAll(".health-bar");
+    bars.forEach((bar) => {
+      const health = parseInt(bar.getAttribute("data-health"), 10) || 0;
+      bar.style.width = `${health}%`;
+      bar.style.backgroundSize = `${100}% 100%`;
+    });
+  }
+
+  // 调用加载数据函数
+  loadZabbixData();
+});
+
+================================================================================
+📄 /home/chi/ai_ops/static/middle.css
+================================================================================
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: white;
+  background: transparent;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 标题下的横线 */
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 10px 0 20px 0;
+}
+
+/* 方块容器 */
+.box-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* 每个方块的样式 */
+.box {
+  flex: 1;
+  height: 120px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+/* 数字样式 */
+.box .number {
+  font-size: 54px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 标题样式 */
+.box .label {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* 方块颜色 */
+.blue-box {
+  background-color: #80b0ff;
+}
+
+.green-box {
+  background-color: #2e7d32;
+}
+
+.red-box {
+  background-color: #b71c1c;
+}
+
+.gray-box {
+  background-color: #909ea5;
+}
+
+/* 表格样式 */
+.table-container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 10px 15px;
+  color: white;
+}
+
+.table th {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table td {
+  font-size: 14px;
+  font-weight: normal;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* 健康度进度条容器 */
+.health-bar-container {
+  position: relative;
+  width: 75%; /* 健康度条宽度为原来的 3/4 */
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* 健康度进度条 */
+.health-bar {
+  position: absolute;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+  background: linear-gradient(to right, #b71c1c, #2e7d32); /* 默认渐变 */
+  background-size: 100% 100%; /* 确保渐变背景大小覆盖整个进度条 */
+  background-position: left; /* 保证从左侧开始显示渐变 */
+  background-repeat: no-repeat; /* 禁止渐变重复 */
+  width: var(--health, 0)%; /* 根据健康度设置进度条宽度 */
+}
+
+/* 健康度的分值 */
+.health-score {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+}
+
+/* 状态指示灯 */
+.status-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: auto; /* 自动居中 */
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.status-indicator.normal {
+  background-color: #2e7d32;
+  box-shadow: 0 0 10px #2e7d32;
+}
+
+.status-indicator.error {
+  background-color: #b71c1c;
+  box-shadow: 0 0 10px #b71c1c;
+}
+
+.status-indicator.offline {
+  background-color: #909ea5;
+  box-shadow: 0 0 10px #909ea5;
+}
+
+/* 运维建议指示灯 */
+.advice-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 默认阴影 */
+}
+
+.advice-indicator.bulb-on {
+  background-color: #ffeb3b; /* 亮黄色灯泡 */
+  box-shadow: 0 0 10px #ffeb3b; /* 黄色晕光 */
+}
+
+.advice-indicator.bulb-off {
+  background-color: #555; /* 灰色灯泡 */
+  box-shadow: none; /* 无晕光 */
+}
+
+/* 表格列宽调整 */
+.table th.host-name-col,
+.table td.host-name-col {
+  width: calc(10ch); /* 8个字符宽度 */
+}
+
+.table th.ip-col,
+.table td.ip-col {
+  width: calc(10ch); /* 6个字符宽度 */
+}
+
+.table th.rack-col,
+.table td.rack-col {
+  width: calc(10ch); /* 8个字符宽度 */
+}
+
+.table th.status-col,
+.table td.status-col {
+  width: calc(8ch); /* 6个字符宽度 */
+  text-align: center; /* 居中对齐 */
+}
+
+.table th.health-col,
+.table td.health-col {
+  width: calc(12ch); /* 12个字符宽度 */
+}
+
+.table th.advice-col,
+.table td.advice-col {
+  width: calc(8ch); /* 8个字符宽度 */
+  text-align: center; /* 居中对齐 */
+}
+
+================================================================================
+📄 /home/chi/ai_ops/static/style.css
+================================================================================
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 800px;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+body {
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 背景：灰黑径向渐变，中心点在页面外 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  background: radial-gradient(circle at -30% -30%, #303841 0%, #000 100%);
+  opacity: 1;
+  filter: blur(0px);
+  transition: background 1s ease-in-out;
+}
+
+/* 主容器：三列布局 */
+.container {
+  display: flex;
+  height: 100%;
+  gap: 5px;
+}
+
+/* 左栏：上下两部分 */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 左栏 1份宽度 */
+  gap: 5px;
+}
+
+/* 中栏和右栏：分别 3份和 2份 */
+.middle-column {
+  flex: 3;
+}
+
+.right-column {
+  flex: 2;
+}
+
+/* header：黄金比例 */
+.left-column iframe:first-child {
+  aspect-ratio: 1 / 0.618;
+}
+
+/* 剩余空间自动撑满 */
+.left-column iframe:last-child {
+  flex-grow: 1;
+}
+
+/* 所有 iframe：统一样式 */
+.container iframe,
+.left-column iframe {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+================================================================================
+📄 /home/chi/ai_ops/static/wave.js
+================================================================================
+
+// static/wave.js
+
+const wavePath = document.getElementById("wavePath");
+let t = 0;
+
+function generateWavePath(amplitude = 20, frequency = 0.01, offset = 100) {
+  const width = 1200;
+  const height = 200;
+  let path = `M0 ${height} `;
+
+  for (let x = 0; x <= width; x += 10) {
+    const y = Math.sin((x + t) * frequency) * amplitude + offset;
+    path += `L${x} ${y} `;
+  }
+
+  path += `L${width} ${height} L0 ${height} Z`;
+  return path;
+}
+
+function animateWave() {
+  wavePath.setAttribute("d", generateWavePath());
+  t += 2;
+  requestAnimationFrame(animateWave);
+}
+
+animateWave();
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/__init__.py
+================================================================================
+
+import os
+from flask import Flask
+from flask_socketio import SocketIO
+
+socketio = SocketIO(cors_allowed_origins="*")  # 全局 SocketIO 实例
+
+def create_app():
+    base = os.path.dirname(__file__)        # …/ai_ops/app
+    template_dir = os.path.join(base, '../templates')
+    static_dir   = os.path.join(base, '../static')
+
+    app = Flask(
+        __name__,
+        template_folder=template_dir,
+        static_folder=static_dir,
+        static_url_path='/static'
+    )
+
+    # 注册蓝图
+    from app.routes.index import index_bp
+    from app.routes.middle import middle_bp
+    from app.routes.header import header_bp
+    from app.routes.left import left_bp
+    from app.routes.right import right_bp
+    from app.routes.left_top import left_top_bp
+    from app.routes.left_bottom import left_bottom_bp
+
+    app.register_blueprint(index_bp)
+    app.register_blueprint(middle_bp)
+    app.register_blueprint(header_bp)
+    app.register_blueprint(left_bp)
+    app.register_blueprint(right_bp)
+    app.register_blueprint(left_top_bp)
+    app.register_blueprint(left_bottom_bp)
+
+    # 初始化 SocketIO
+    socketio.init_app(app)
+
+    return app
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/index.py
+================================================================================
+
+from flask import Blueprint, render_template
+
+index_bp = Blueprint("index", __name__)
+
+@index_bp.route("/")
+def index():
+    return render_template("index.html")
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/left.py
+================================================================================
+
+from flask import Blueprint, render_template
+
+left_bp = Blueprint("left", __name__)
+
+@left_bp.route("/left")
+def left():
+    return render_template("left.html")
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/left_bottom.py
+================================================================================
+
+from flask import Blueprint, render_template
+
+left_bottom_bp = Blueprint("left_bottom", __name__)
+
+@left_bottom_bp.route("/left-bottom")
+def left_bottom():
+    return render_template("left-bottom.html")
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/middle.py
+================================================================================
+
+from flask import Blueprint, render_template, jsonify
+from app.utils.get_zabbix_data import zabbix_login, get_hosts, get_items, get_host_ip, collect_host_data
+from app.utils.svr_health_ds import ds
+from app.utils.process_json import process_and_refine
+import os
+
+middle_bp = Blueprint("middle", __name__)
+
+def gather_zabbix_data():
+    total_nodes = normal_nodes = error_nodes = offline_nodes = 0
+    nodes = []
+    right_panel_logs = []
+
+    auth_token = zabbix_login()
+    if auth_token:
+        hosts = get_hosts(auth_token) or []
+        for host in hosts:
+            total_nodes += 1
+            if host["status"] == "0":
+                status = "normal";    normal_nodes += 1
+            elif host["status"] == "1":
+                status = "error";     error_nodes += 1
+            else:
+                status = "offline";   offline_nodes += 1
+
+            # 状态判断
+            items = get_items(auth_token, host["hostid"])
+            prompt_status = "这是服务器的运行数据，请判断服务器的运行状态是否正常（返回0/1代表正常/异常）"
+            svr_status = ds(items, prompt_status)
+            right_panel_logs.append(f"Server {host['name']} status analysis: {svr_status}")
+
+            # 历史数据清洗+健康度判断
+            collect_host_data(auth_token, host)
+            fname = f"{host['name']}.json"
+            if os.path.exists(fname):
+                refined = process_and_refine(fname)
+                prompt_health = (
+                    "这是服务器运行的历史数据，请判断服务器的健康度（0%-100%），"
+                    "并判断是否需要运维，（返回0/1代表不需要/需要），"
+                    "如果需要运维请给出运维建议的内容。"
+                )
+                health_analysis = ds(refined, prompt_health)
+                health = health_analysis.get("health", 0)
+                needs = health_analysis.get("needs_maintenance", 0)
+                advice = health_analysis.get("advice", "ok")
+                right_panel_logs.append(f"Server {host['name']} health analysis: {health_analysis}")
+
+                nodes.append({
+                    "host_name": host["name"],
+                    "ip": get_host_ip(auth_token, host["hostid"]) or "未知",
+                    "rack": "A0000",
+                    "status": "normal" if svr_status == 0 else "error",
+                    "health": health,
+                    "advice": "ok" if needs == 0 else advice
+                })
+
+    return {
+        "total_nodes": total_nodes,
+        "normal_nodes": normal_nodes,
+        "error_nodes": error_nodes,
+        "offline_nodes": offline_nodes,
+        "nodes": nodes
+    }, right_panel_logs
+
+@middle_bp.route("/middle")
+def middle():
+    node_data, right_panel_logs = gather_zabbix_data()
+    return render_template("middle.html", node_data=node_data, right_panel_logs=right_panel_logs)
+
+@middle_bp.route("/api/zabbix-data")
+def api_zabbix_data():
+    node_data, _ = gather_zabbix_data()
+    return jsonify(status="success", data=node_data)
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/right.py
+================================================================================
+
+from flask import Blueprint, render_template, Response, stream_with_context
+
+right_bp = Blueprint("right", __name__)
+
+_default_logs = [
+    "Server Node1 status analysis: 正常",
+    "Server Node1 health analysis: {'health': 95, 'needs_maintenance': 0, 'advice': 'ok'}",
+    "Server Node2 status analysis: 异常",
+    "Server Node2 health analysis: {'health': 50, 'needs_maintenance': 1, 'advice': '需要更换硬盘'}"
+]
+
+@right_bp.route("/right")
+def right():
+    return render_template("right.html", right_panel_logs=_default_logs)
+
+@right_bp.route("/stream")
+def stream():
+    def generate():
+        for msg in _default_logs:
+            yield msg + "\n"
+    return Response(stream_with_context(generate()), mimetype="text/plain")
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/header.py
+================================================================================
+
+from flask import Blueprint, render_template
+
+header_bp = Blueprint("header", __name__)
+
+@header_bp.route("/header")
+def header():
+    return render_template("header.html")
+
+================================================================================
+📄 /home/chi/ai_ops/app/routes/left_top.py
+================================================================================
+
+from flask import Blueprint, render_template
+
+left_top_bp = Blueprint("left_top", __name__)
+
+@left_top_bp.route("/left-top")
+def left_top():
+    return render_template("left-top.html")
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/index.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/right.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/left_bottom.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/header.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/left_top.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/left.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/routes/__pycache__/middle.cpython-312.pyc
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/utils/process_json.py
+================================================================================
+
+import json
+import numpy as np
+import scipy.fft
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+def classify_item(history):
+    """
+    根据数据点的结构和特点分类。
+    """
+    if not history:
+        return "empty"
+    
+    if all(isinstance(dp, dict) and "time" in dp and "value" in dp for dp in history):
+        try:
+            float(history[0]["value"])
+            return "numeric_time_series"
+        except ValueError:
+            return "textual_time_series"
+    
+    return "unknown"
+
+def process_numeric_time_series(history):
+    """
+    提炼数值型时间序列数据的特征。
+    """
+    values = np.array([float(entry["value"]) for entry in history])
+    result = {}
+
+    result["summary_stats"] = {
+        "mean": float(round(np.mean(values), 2)),
+        "min": float(round(np.min(values), 2)),
+        "max": float(round(np.max(values), 2))
+    }
+
+    x = np.arange(len(values))
+    coeffs = np.polyfit(x, values, 1)
+    result["trend_slope"] = float(round(coeffs[0], 6))
+
+    fft_vals = scipy.fft.rfft(values)
+    fft_freqs = scipy.fft.rfftfreq(len(values), d=1)
+    peak_idx = np.argmax(np.abs(fft_vals))
+    result["fft_dominant_frequency"] = float(round(fft_freqs[peak_idx], 6))
+
+    decomposition = seasonal_decompose(values, period=max(2, len(values) // 2), model='additive', extrapolate_trend="freq")
+    trend = decomposition.trend
+    result["trend_values"] = {
+        "start": float(round(trend[0], 2)) if not np.isnan(trend[0]) else None,
+        "end": float(round(trend[-1], 2)) if not np.isnan(trend[-1]) else None
+    }
+
+    diffs = np.diff(values)
+    cusum = np.cumsum(diffs - np.mean(diffs))
+    change_points = np.where(np.abs(cusum) > np.std(cusum))[0]
+    result["change_points_total"] = int(len(change_points))
+
+    mean = np.mean(values)
+    std = np.std(values)
+    threshold_upper = mean + 2 * std
+    threshold_lower = mean - 2 * std
+    anomalies = [val for val in values if val > threshold_upper or val < threshold_lower]
+    result["anomalies_total"] = int(len(anomalies))
+
+    return result
+
+def process_textual_time_series(history):
+    """
+    提炼文本型数据，只保留出现频率最高的状态及其比例。
+    """
+    values = [entry["value"] for entry in history]
+    unique_values, counts = np.unique(values, return_counts=True)
+    total_states = sum(counts)
+    dominant_state = unique_values[np.argmax(counts)]
+    dominant_frequency = counts[np.argmax(counts)]
+
+    return {
+        "dominant_state": dominant_state,
+        "frequency": int(dominant_frequency),
+        "proportion": float(round(dominant_frequency / total_states, 2))
+    }
+
+def process_and_refine(input_file, output_file='refined_output.json'):
+    """
+    从原始 JSON 文件中提炼数据，并输出提炼后的 JSON 文件。
+    返回提炼后的结果字典。
+    """
+    with open(input_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    refined_results = {}
+
+    for item in data.get("items", []):
+        item_name = item.get("item_name", "未知项")
+        history = item.get("history", [])
+        category = classify_item(history)
+
+        if category == "numeric_time_series":
+            refined_results[item_name] = process_numeric_time_series(history)
+        elif category == "textual_time_series":
+            refined_results[item_name] = process_textual_time_series(history)
+        else:
+            continue
+
+    # 写入输出文件
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(refined_results, f, ensure_ascii=False, indent=4)
+
+    return refined_results
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/utils/get_zabbix_data.py
+================================================================================
+
+import requests
+import json
+import time
+from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor
+
+# Zabbix API 服务器地址
+ZABBIX_URL = "http://10.0.12.31/api_jsonrpc.php"
+ZABBIX_USER = "Admin"
+ZABBIX_PASSWORD = "zabbix"
+MAX_THREADS = 5  # 最大线程数
+
+# 登录 API 并获取 token
+def zabbix_login():
+    payload = {
+        "jsonrpc": "2.0",
+        "method": "user.login",
+        "params": {
+            "username": ZABBIX_USER,
+            "password": ZABBIX_PASSWORD
+        },
+        "id": 1
+    }
+    response = requests.post(ZABBIX_URL, json=payload, headers={"Content-Type": "application/json-rpc"})
+    response_data = response.json()
+    if "result" in response_data:
+        auth_token = response_data["result"]
+        print("zabbix_login执行完成，response为：", auth_token)
+        return auth_token
+    else:
+        print("登录失败，response为：", response_data)
+        return None
+
+# 获取所有主机信息
+def get_hosts(auth_token):
+    if auth_token is None:
+        return None
+    payload = {
+        "jsonrpc": "2.0",
+        "method": "host.get",
+        "params": {
+            "output": ["hostid", "name", "status"]
+        },
+        "id": 2
+    }
+    response = requests.post(ZABBIX_URL, json=payload, headers={"Content-Type": "application/json-rpc", "Authorization": f"Bearer {auth_token}"})
+    response_data = response.json()
+    if "result" in response_data:
+        hosts = response_data["result"]
+        return hosts
+    else:
+        print("获取主机信息失败，response为：", response_data)
+        return None
+
+# 获取主机的 IP 地址
+def get_host_ip(auth_token, host_id):
+    payload = {
+        "jsonrpc": "2.0",
+        "method": "hostinterface.get",
+        "params": {
+            "output": "extend",
+            "hostids": host_id
+        },
+        "id": 3
+    }
+    response = requests.post(ZABBIX_URL, json=payload, headers={"Content-Type": "application/json-rpc", "Authorization": f"Bearer {auth_token}"})
+    response_data = response.json()
+    if "result" in response_data:
+        # 提取接口信息中的 IP 地址
+        interfaces = response_data["result"]
+        for interface in interfaces:
+            if interface["main"] == "1" and interface["useip"] == "1":  # 主接口，使用 IP
+                return interface["ip"]
+        return "未知"
+    else:
+        print(f"获取主机接口失败，host_id: {host_id}，response为：", response_data)
+        return "未知"
+
+# 获取指定主机的监控项
+def get_items(auth_token, host_id):
+    payload = {
+        "jsonrpc": "2.0",
+        "method": "item.get",
+        "params": {
+            "hostids": host_id,
+            "output": ["itemid", "name", "lastvalue", "value_type"]
+        },
+        "id": 4
+    }
+    response = requests.post(ZABBIX_URL, json=payload, headers={"Content-Type": "application/json-rpc", "Authorization": f"Bearer {auth_token}"})
+    response_data = response.json()
+    if "result" in response_data:
+        items = response_data["result"]
+        return items
+    else:
+        print(f"获取监控项失败，host_id: {host_id}，response为：", response_data)
+        return []
+
+# 获取指定监控项的历史数据
+def get_history(auth_token, item_id, time_from, time_till, item_type):
+    payload = {
+        "jsonrpc": "2.0",
+        "method": "history.get",
+        "params": {
+            "output": ["clock", "value"],
+            "history": item_type,
+            "itemids": item_id,
+            "sortfield": "clock",
+            "sortorder": "DESC",
+            "time_till": time_till
+        },
+        "id": 5
+    }
+    response = requests.post(ZABBIX_URL, json=payload, headers={"Content-Type": "application/json-rpc", "Authorization": f"Bearer {auth_token}"})
+    response_data = response.json()
+    if "result" in response_data:
+        return response_data["result"]
+    else:
+        print(f"获取历史数据失败，item_id: {item_id}，response为：", response_data)
+        return []
+
+# 获取 Unix 时间戳
+def get_time_stamp(date_str):
+    return int(time.mktime(time.strptime(date_str, '%Y-%m-%d %H:%M:%S')))
+
+# 采集主机数据
+def collect_host_data(auth_token, host):
+    host_data = {
+        "host_name": host['name'],
+        "host_status": host['status'],
+        "host_ip": get_host_ip(auth_token, host['hostid']),  # 获取主机 IP
+        "items": []
+    }
+
+    # 获取该主机的监控项信息
+    items = get_items(auth_token, host['hostid'])
+    if items is None:
+        print(f"获取主机 {host['name']} 的监控项失败，跳过。")
+        return
+
+    for item in tqdm(items, desc=f"采集中 {host['name']} 的监控项", unit="item", leave=False):
+        item_data = {
+            "item_name": item['name'],
+            "last_value": item['lastvalue'],
+            "history": []
+        }
+
+        # 设定时间范围（以Unix时间戳表示）
+        time_from = get_time_stamp('2025-01-01 00:00:00')  # 起始时间
+        time_till = get_time_stamp('2025-04-12 23:59:59')  # 结束时间
+
+        # 获取历史数据
+        history = get_history(auth_token, item['itemid'], time_from, time_till, item['value_type'])
+        for record in history:
+            record_data = {
+                "time": time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(record['clock']))),
+                "value": record['value']
+            }
+            item_data["history"].append(record_data)
+        host_data["items"].append(item_data)
+
+    # 保存主机数据为json文件
+    file_name = f"{host['name']}.json"
+    with open(file_name, 'w', encoding='utf-8') as f:
+        json.dump(host_data, f, ensure_ascii=False, indent=4)
+    print(f"{host['name']}采集完成，数据保存为{file_name}")
+
+# 主函数
+def main():
+    # 获取认证 token
+    auth_token = zabbix_login()
+
+    if auth_token is None:
+        print("获取认证 token 失败，程序退出。")
+        return
+
+    # 获取所有主机信息
+    hosts = get_hosts(auth_token)
+    if hosts is None:
+        print("获取主机信息失败，程序退出。")
+        return
+
+    print("获取到的主机信息：")
+    with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
+        futures = [executor.submit(collect_host_data, auth_token, host) for host in hosts]
+        for future in tqdm(futures, desc="总体进度", unit="host"):
+            future.result()
+
+if __name__ == "__main__":
+    main()
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/utils/svr_health_ds.py
+================================================================================
+
+from openai import OpenAI
+import json
+
+def ds(svr_data, prompt):
+    client = OpenAI(
+        api_key="sk-4572ecf05c5c46c29218838051f8be2d",
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+    )
+
+    reasoning_content = ""
+    answer_content = ""
+    is_answering = False
+
+    completion = client.chat.completions.create(
+        model="deepseek-r1-distill-qwen-1.5b",
+        messages=[
+            {"role": "user", "content": prompt},
+            {"role": "user", "content": json.dumps(svr_data, ensure_ascii=False)}
+        ],
+        stream=True,
+    )
+
+    for chunk in completion:
+        if not chunk.choices:
+            print("\nUsage:")
+            print(chunk.usage)
+        else:
+            delta = chunk.choices[0].delta
+            if hasattr(delta, 'reasoning_content') and delta.reasoning_content is not None:
+                print(delta.reasoning_content, end='', flush=True)
+                reasoning_content += delta.reasoning_content
+            else:
+                if delta.content != "" and is_answering is False:
+                    print("\n" + "=" * 20 + "完整回复" + "=" * 20 + "\n")
+                    is_answering = True
+                print(delta.content, end='', flush=True)
+                answer_content += delta.content
+
+    # 重点：返回内容
+    try:
+        return json.loads(answer_content)
+    except json.JSONDecodeError:
+        return {"health": 0, "needs_maintenance": 0, "advice": "无法解析模型响应"}
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/app/utils/stream_redirect.py
+================================================================================
+
+class StreamToSocket:
+    def __init__(self, socketio, namespace="/log"):
+        self.socketio = socketio
+        self.namespace = namespace
+        self.buffer = ""
+
+    def write(self, message):
+        self.buffer += message
+        if "\n" in self.buffer:
+            self.socketio.emit("log_message", {"data": self.buffer}, namespace=self.namespace)
+            self.buffer = ""
+
+    def flush(self):
+        pass
+
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/utils/__pycache__/process_json.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/utils/__pycache__/get_zabbix_data.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/utils/__pycache__/svr_health_ds.cpython-312.pyc
+
+
+⚠️  Skipping binary file: /home/chi/ai_ops/app/__pycache__/__init__.cpython-312.pyc
+
+
+================================================================================
+📄 /home/chi/ai_ops/templates/left.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>左下栏容器</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      height: 100%;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .top-frame {
+      flex: 1;
+    }
+
+    .bottom-frame {
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="{{ url_for('left_top.left_top') }}" class="top-frame"></iframe>
+  <iframe src="{{ url_for('left_bottom.left_bottom') }}" class="bottom-frame"></iframe>
+  <script>
+    // 监听来自 left-top.html 的消息
+    window.addEventListener("message", (event) => {
+      console.log("Received message in left.html from left-top.html:", event.data);
+
+      if (event.data.type === 'selectSite') {
+        console.log("Forwarding message to index.html:", event.data);
+        // 转发消息到 index.html
+        window.parent.postMessage(event.data, "*");
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+================================================================================
+📄 /home/chi/ai_ops/templates/right.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实时日志输出</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: monospace;
+            padding: 20px;
+        }
+        #log {
+            white-space: pre-wrap;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    <h2>实时日志输出</h2>
+    <div id="log"></div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        const socket = io("/log");
+
+        socket.on("log_message", function(msg) {
+            const logDiv = document.getElementById("log");
+            logDiv.innerText += msg.data;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        });
+    </script>
+</body>
+</html>
+
+
+
+================================================================================
+📄 /home/chi/ai_ops/templates/header.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Header</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background: transparent;
+    }
+
+    body {
+      display: flex;
+      align-items: center;      /* 垂直居中 */
+      justify-content: center;  /* 水平居中 */
+      font-family: "Microsoft YaHei", "Heiti SC", "黑体", sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      max-height: 60px;
+      max-width: 60%;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo">
+    <h1>Datacenter AIOps Copilot</h1>
+  </div>
+</body>
+</html>
+
+
+================================================================================
+📄 /home/chi/ai_ops/templates/middle.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>中栏</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='middle.css') }}" />
+</head>
+<body>
+  <h1 id="site-title">广州实验室智算集群</h1>
+  
+  <!-- 方块容器 -->
+  <div class="box-container">
+    <div class="box blue-box">
+      <p class="number" id="total-nodes-count">{{ node_data.total_nodes }}</p>
+      <p class="label">节点总数</p>
+    </div>
+    <div class="box green-box">
+      <p class="number" id="normal-nodes-count">{{ node_data.normal_nodes }}</p>
+      <p class="label">正常节点</p>
+    </div>
+    <div class="box red-box">
+      <p class="number" id="error-nodes-count">{{ node_data.error_nodes }}</p>
+      <p class="label">异常节点</p>
+    </div>
+    <div class="box gray-box">
+      <p class="number" id="offline-nodes-count">{{ node_data.offline_nodes }}</p>
+      <p class="label">离线节点</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  
+  <!-- 表格容器 -->
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="host-name-col">主机名称</th>
+          <th class="ip-col">主机IP</th>
+          <th class="rack-col">上架位置</th>
+          <th class="status-col">运行状态</th>
+          <th colspan="2" class="health-col">健康度</th> <!-- 健康度占两格 -->
+          <th class="advice-col">运维建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for node in node_data.nodes %}
+        <tr>
+          <td>{{ node.host_name }}</td>
+          <td>{{ node.ip }}</td>
+          <td>{{ node.rack }}</td>
+          <td><span class="status-indicator {{ node.status }}"></span></td>
+          <td colspan="2">
+            <div class="health-bar-container">
+              <div class="health-bar" data-health="{{ node.health }}"></div>
+              <span class="health-score">{{ node.health }}%</span>
+            </div>
+          </td>
+          <td class="advice-col"><span class="advice-indicator {{ node.advice }}"></span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 引入 JavaScript -->
+  <script src="{{ url_for('static', filename='middle.js') }}"></script>
+</body>
+</html>
+
+
+================================================================================
+📄 /home/chi/ai_ops/templates/left-bottom.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>底部信息</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-size: 12px;
+      color: #aaa;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+  Powered by <a href="mailto:chijianyu@turing-agi.com">chijianyu@turing-agi.com</a>
+</body>
+</html>
+
+
+================================================================================
+📄 /home/chi/ai_ops/templates/index.html
+================================================================================
+
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turing DC AIOps Copilot</title>
+  <!-- 修正静态文件路径 -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <!-- 页面主容器 -->
+    <div class="container">
+      <div class="left-column">
+        <!-- 使用Flask路由路径 -->
+        <iframe src="{{ url_for('header.header') }}" title="Header"></iframe>
+        <iframe src="{{ url_for('left.left') }}" title="Left"></iframe>
+      </div>
+
+      <!-- 使用Flask路由路径 -->
+      <iframe src="{{ url_for('middle.middle') }}" class="middle-column" title="Middle"></iframe>
+      <iframe src="{{ url_for('right.right') }}" class="right-column" title="Right"></iframe>
+    </div>
+
+    <script>
+        window.addEventListener("message", (event) => {
+          console.log("Parent got message:", event.data);
+
+          if (event.data.type === 'selectSite') {
+            const middleFrame = document.querySelector("iframe.middle-column");
+            console.log("Sending to middle.html:", event.data, middleFrame);
+
+            if (middleFrame) {
+              middleFrame.contentWindow.postMessage(event.data, "*");
+          }
+        }
+      });
+    </script>
+
+</body>
+</html>
+
+================================================================================
+📄 /home/chi/ai_ops/templates/left-top.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>左下导航栏</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='left.css') }}" />  
+</head>
+<body>
+  <div class="nav-header">图灵一体化智算网</div>
+  <div class="site-list">
+    <div class="site-item selected" onclick="selectSite(this, '广州实验室智算集群')">
+      <img src="{{ url_for('static', filename='images/siteicon.svg') }}?v={{ timestamp }}" class="site-icon" />
+      <span class="site-name">广州实验室智算集群</span>
+    </div>
+    <div class="site-item" onclick="selectSite(this, '广州实验室数据中心')">
+      <img src="{{ url_for('static', filename='images/siteicon.svg') }}?v={{ timestamp }}" class="site-icon" />
+      <span class="site-name">广州实验室数据中心</span>
+    </div>
+    <div class="site-item" onclick="selectSite(this, '深圳移动智算集群')">
+      <img src="{{ url_for('static', filename='images/siteicon.svg') }}?v={{ timestamp }}" class="site-icon" />
+      <span class="site-name">深圳移动智算集群</span>
+    </div>
+    <div class="site-item" onclick="selectSite(this, '平安科技智算集群')">
+      <img src="{{ url_for('static', filename='images/siteicon.svg') }}?v={{ timestamp }}" class="site-icon" />
+      <span class="site-name">平安科技智算集群</span>
+    </div>
+    <div class="site-item" onclick="selectSite(this, '博时基金智算集群')">
+      <img src="{{ url_for('static', filename='images/siteicon.svg') }}?v={{ timestamp }}" class="site-icon" />
+      <span class="site-name">博时基金智算集群</span>
+    </div>
+    <div class="site-item" onclick="selectSite(this, '四川联通智算集群')">
+      <img src="{{ url_for('static', filename='images/siteicon.svg') }}?v={{ timestamp }}" class="site-icon" />
+      <span class="site-name">四川联通智算集群</span>
+    </div>
+  </div>
+
+  <script>
+    function selectSite(el, name) {
+      // 清除之前的选中状态
+      document.querySelectorAll('.site-item').forEach(item => {
+        item.classList.remove('selected');
+        const icon = item.querySelector('.site-icon');
+        icon.style.filter = 'invert(100%)';
+        item.querySelector('.site-name').style.fontWeight = 'normal';
+        item.querySelector('.site-name').style.fontSize = '16px';
+      });
+
+      // 设置当前项为选中状态
+      el.classList.add('selected');
+      const icon = el.querySelector('.site-icon');
+      icon.style.filter = 'invert(47%) sepia(100%) saturate(667%) hue-rotate(2deg) brightness(101%) contrast(101%)';
+      el.querySelector('.site-name').style.fontWeight = 'bold';
+      el.querySelector('.site-name').style.fontSize = '18px';
+
+      // 通知父页面（index.html）
+      console.log("Sending message to parent (left.html):", { type: 'selectSite', name });
+      window.parent.postMessage({ type: 'selectSite', name }, '*');
+    }
+
+    // 默认触发第一个 site
+    window.onload = () => {
+      const first = document.querySelector('.site-item');
+      if (first) {
+        first.click();
+      }
+    };
+  </script>
+</body>
+</html>
+
